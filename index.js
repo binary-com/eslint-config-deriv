@@ -174,8 +174,6 @@ module.exports = {
     "eqeqeq": "off",
     "consistent-return": "off",
     'no-unused-expressions': 'off',
-    "localize-usage/only-string-literal-argument": "error",
-    "localize-usage/no-invalid-identifier-in-prop-value": "error",
     'import/namespace': ['error', { allowComputed: true }]
   },
 };
