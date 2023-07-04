@@ -174,6 +174,7 @@ module.exports = {
     "eqeqeq": "off",
     "consistent-return": "off",
     'no-unused-expressions': 'off',
-    'import/namespace': ['error', { allowComputed: true }]
+    'import/namespace': ['error', { allowComputed: true }],
+    'import/no-unresolved': 'warn'
   },
 };
