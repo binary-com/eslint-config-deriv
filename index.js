@@ -10,7 +10,7 @@ module.exports = {
     "plugin:import/errors",
     "plugin:import/warnings",
   ],
-  plugins: ['prettier', 'testing-library', '@typescript-eslint', 'jest', 'localize-usage'],
+  plugins: ['prettier', 'testing-library', '@typescript-eslint', 'jest'],
   ignorePatterns: ['**/dist/**/*.js', '**/lib/**/*.js'],
   globals: {
     dataLayer: true,
