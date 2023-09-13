@@ -177,7 +177,7 @@ module.exports = {
     'import/namespace': ['error', { allowComputed: true }],
     'import/no-unresolved': 'warn'
   },
-  'simple-import-sort/imports': [
+  'simple-import-sort/sort': [
     'error',
     {
       groups: [
