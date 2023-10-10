@@ -10,7 +10,7 @@ module.exports = {
     'plugin:import/errors',
     'plugin:import/warnings',
   ],
-  plugins: ['prettier', 'testing-library', '@typescript-eslint', 'jest', 'simple-import-sort'],
+  plugins: ['prettier', 'testing-library', '@typescript-eslint', 'jest'],
   ignorePatterns: ['**/dist/**/*.js', '**/lib/**/*.js'],
   globals: {
     dataLayer: true,
@@ -176,28 +176,5 @@ module.exports = {
     'no-unused-expressions': 'off',
     'import/namespace': ['error', { allowComputed: true }],
     'import/no-unresolved': 'warn',
-    'simple-import-sort/imports': [
-      'error',
-      {
-        groups: [
-          // Packages `react` related packages come first.
-          ['^react', '^[a-z]'],
-          // Packages from a '@deriv' scope come second.
-          ['^@\\w'],
-          // Absolute imports and other imports from aliases like 'Components/...'
-          ['^[A-Z]'],
-          // Internal packages.
-          ['^(@|components)(/.*|$)'],
-          // Parent imports. Put `..` last.
-          ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
-          // Other relative imports. Put same-folder imports and `.` last.
-          ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
-          // Style imports.
-          ['^.+\\.?(css)$'],
-        ],
-      },
-    ],
-  
   },
-  
 };
