@@ -7,10 +7,10 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:jest-dom/recommended',
-    "plugin:import/errors",
-    "plugin:import/warnings",
+    'plugin:import/errors',
+    'plugin:import/warnings',
   ],
-  plugins: ['prettier', 'testing-library', '@typescript-eslint', 'jest'],
+  plugins: ['prettier', 'testing-library', '@typescript-eslint', 'jest', 'simple-import-sort'],
   ignorePatterns: ['**/dist/**/*.js', '**/lib/**/*.js'],
   globals: {
     dataLayer: true,
@@ -151,30 +151,53 @@ module.exports = {
       },
     ],
     'react/self-closing-comp': 'error',
-    "strict": 0,
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    "no-unused-vars": "error",
-    "no-multiple-empty-lines": [
-      "error",
+    'strict': 0,
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
+    'no-unused-vars': 'error',
+    'no-multiple-empty-lines': [
+      'error',
       {
-        "max": 1,
-        "maxEOF": 1
+        'max': 1,
+        'maxEOF': 1
       }
     ],
-    "space-unary-ops": "error",
-    "jest/no-disabled-tests": "warn",
-    "jest/no-focused-tests": "error",
-    "jest/prefer-to-have-length": "warn",
-    "react/react-in-jsx-scope": "off",
-    "jest/valid-expect": "off",
-    "no-trailing-spaces": "off",
-    "jest/no-identical-title": "off",
-    "no-shadow": "off",
-    "eqeqeq": "off",
-    "consistent-return": "off",
+    'space-unary-ops': 'error',
+    'jest/no-disabled-tests': 'warn',
+    'jest/no-focused-tests': 'error',
+    'jest/prefer-to-have-length': 'warn',
+    'react/react-in-jsx-scope': 'off',
+    'jest/valid-expect': 'off',
+    'no-trailing-spaces': 'off',
+    'jest/no-identical-title': 'off',
+    'no-shadow': 'off',
+    'eqeqeq': 'off',
+    'consistent-return': 'off',
     'no-unused-expressions': 'off',
     'import/namespace': ['error', { allowComputed: true }],
-    'import/no-unresolved': 'warn'
+    'import/no-unresolved': 'warn',
+    'simple-import-sort/imports': [
+      'error',
+      {
+        groups: [
+          // Packages `react` related packages come first.
+          ['^react', '^[a-z]'],
+          // Packages from a '@deriv' scope come second.
+          ['^@\\w'],
+          // Absolute imports and other imports from aliases like 'Components/...'
+          ['^[A-Z]'],
+          // Internal packages.
+          ['^(@|components)(/.*|$)'],
+          // Parent imports. Put `..` last.
+          ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
+          // Other relative imports. Put same-folder imports and `.` last.
+          ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
+          // Style imports.
+          ['^.+\\.?(css)$'],
+        ],
+      },
+    ],
+  
   },
+  
 };
