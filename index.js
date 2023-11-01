@@ -58,20 +58,9 @@ module.exports = {
       typescript: {}, // this loads <rootdir>/tsconfig.json to eslint
     },
   },
-
   rules: {
     //------------------------------------rules from deriv-app------------------------------------
-    "linebreak-style": ["error", "unix"],
-    "jsx-quotes": ["error", "prefer-single"],
-    "no-confusing-arrow": ["error", { allowParens: false }],
-    "no-tabs": ["error", { allowIndentationTabs: true }],
-    indent: ["error", false],
-    quotes: [
-      "error",
-      "single",
-      { avoidEscape: true, allowTemplateLiterals: false },
-    ],
-
+    camelcase: 0,
     "array-callback-return": 0,
     "arrow-body-style": 0,
     "brace-style": ["error", "1tbs", { allowSingleLine: true }],
@@ -214,4 +203,14 @@ module.exports = {
       },
     ],
   },
+  "linebreak-style": ["error", "unix"],
+  "jsx-quotes": ["error", "prefer-single"],
+  "no-confusing-arrow": ["error", { allowParens: false }],
+  "no-tabs": ["error", { allowIndentationTabs: true }],
+  indent: ["error", false],
+  quotes: [
+    "error",
+    "single",
+    { avoidEscape: true, allowTemplateLiterals: false },
+  ],
 };
